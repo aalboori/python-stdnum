@@ -1,14 +1,5 @@
-# global
-*.pyc
-*.pyo
-*~
-__pycache__
+**__pycache__/
+build/
+dist/
+*.egg-info/
 
-# /
-/.coverage
-/.tox
-/build
-/coverage
-/dist
-/distribute-*.egg
-/python_stdnum.egg-info
