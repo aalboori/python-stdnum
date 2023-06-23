@@ -71,14 +71,14 @@ def branch_list(branches):
 
 if __name__ == '__main__':
     # parse the download as an XLS
-    response = requests.get(download_url)
+    response = requests.get(download_url, timeout=30)
     response.raise_for_status()
     content_disposition = response.headers.get('content-disposition', '')
     filename = re.findall(r'filename=?(.+)"?', content_disposition)[0].strip('"')
     workbook = xlrd.open_workbook(file_contents=response.content)
     sheet = workbook.sheet_by_index(0)
     # print header
-    print('# generated from %s downloaded from ' % filename)
+    print('# generated from %s downloaded from' % filename)
     print('# %s' % download_url)
     # build banks list from spreadsheet
     banks = defaultdict(dict)
